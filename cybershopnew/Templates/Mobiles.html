@@ -1,0 +1,20 @@
+﻿<div class="fortables col-lg-7">
+    <table class="table" border="4">
+        <thead>
+            <tr>
+                <th>Sno</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tr ng-repeat="mobile in mobiles" border="2">
+            <td>{{mobile.Sno}}</td>
+            <td>{{mobile.Name}}</td>
+            <td>{{mobile.Price}}</td>
+            <td><button class="btn-primary">ADD TO CART</button></td>
+
+        </tr>
+    </table>
+</div>

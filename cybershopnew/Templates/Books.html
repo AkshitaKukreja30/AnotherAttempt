@@ -1,0 +1,22 @@
+﻿<div class="fortables col-lg-7">
+    <table class="table" border="4">
+        <thead>
+        <tr>
+        <th>Sno</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th></th>
+        </tr>
+        </thead>
+
+        <tr ng-repeat="book in books" border="2">
+            <td>{{book.Sno}}</td>
+            <td>{{book.Name}}</td>
+            <td>{{book.Author}}</td>
+            <td>{{book.Price}}</td>
+           <td><button class="btn-primary">ADD TO CART</button></td>
+
+        </tr>
+    </table>
+    </div>

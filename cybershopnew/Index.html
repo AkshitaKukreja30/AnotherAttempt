@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--<script src="Scripts/jquery-3.2.1.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <!--<script src="Scripts/angular.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>
+    <!--<script src="Scripts/angular-route.min.js"></script>-->
+    <!--<script src="Scripts/angular-route.js"></script>-->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+    <script src="Scripts/app.js"></script>
+    <style>
+        <style > body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 30px;
+            left: 0;
+            
+            padding-top: 40px;
+            color: black;
+            // overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+            .sidenav a {
+                padding: 6px 6px 6px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                /*display: block;*/
+            }
+
+                .sidenav a:hover {
+                    color: darkblue;
+                }
+
+        .main {
+            margin-left: 200px; /* Same as the width of the sidenav */
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+                .sidenav a {
+                    font-size: 18px;
+                }
+        }
+
+        h1 {
+            background-color: antiquewhite;
+            color: black;
+        }
+
+        .forcategories{
+            text-align:center;
+            font-size:larger;
+        }
+
+        .fortables {
+            text-align:center;
+            font-size:medium;
+            margin-left:240px;
+           
+            
+        }
+        .borderforcard{
+            border-radius:10px;
+            background-color:antiquewhite;
+            margin-left:240px;
+            text-align:center;
+            padding-top:50px;
+            width:340px;
+            height:250px;
+            font-size:medium;
+            
+        }
+
+        .borderforimage{
+            text-align:center;
+            margin-left:180px;
+
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER AND NAVBAR -->
+    <header>
+        <nav class="navbar navbar-default">
+
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/" style="text-align:left;font-family:'Comic Sans MS'; font-size:larger"><b>CYBERSHOP</b></a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#!/Home"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#!/ContactUs"><i class="fa fa-envelope-o"></i> Contact Us</a></li>
+                    <li><a href="#!/Cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <!--<!--<hr />-->
+    <br />
+    <div class="sidenav navbar-default">
+        <br />
+        <p><b class="forcategories" style="text-align:center">Categories</b></p>
+        <div style="color:black">
+            <a href="#!/Mobiles">Mobiles</a>
+            <br />
+            <a href="#!/Books">Books</a><br />
+            <a href="#!/Accesories">Accessories</a><br />
+            <a href="#!/Clothing">Clothing</a>
+        </div>
+    </div>
+
+
+    <div class="main">
+        <!--<h1>WELCOME</h1>-->
+        <ng-view></ng-view>
+    </div>
+ <!--<img src="https://i.pinimg.com/736x/c9/c6/15/c9c615a139efd711821842316dc847b9.jpg" />-->
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
