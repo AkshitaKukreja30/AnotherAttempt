@@ -114,5 +114,12 @@ namespace cybershopnew.Controller
         {
             return db.Carts.Count(e => e.Sno == id) > 0;
         }
+
+        [HttpGet]
+        public decimal CalculateSum()
+        {
+            return db.Carts.Sum(e => e.Price);
+            
+        }
     }
 }

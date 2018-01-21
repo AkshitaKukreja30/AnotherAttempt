@@ -165,8 +165,10 @@
     <Content Include="Templates\Accessories.html" />
     <Content Include="Templates\Books.html" />
     <Content Include="Templates\Cart.html" />
+    <Content Include="Templates\Checkout.html" />
     <Content Include="Templates\Clothing.html" />
     <Content Include="Templates\ContactUs.html" />
+    <Content Include="Templates\CustomerDetails.html" />
     <Content Include="Templates\Home.html" />
     <Content Include="Templates\Mobiles.html" />
     <Content Include="Web.config" />

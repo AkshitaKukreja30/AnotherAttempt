@@ -39,6 +39,21 @@
                 templateUrl: "Templates/Clothing.html",
                 controller: "clothingController"
             })
+
+            .when("/Checkout",
+            {
+                templateUrl: "Templates/Checkout.html",
+                controller: "cartController"
+            })
+
+            .when("/CustomerDetails",
+            {
+                templateUrl: "Templates/CustomerDetails.html"
+            })
+
+
+
+
         
                    
     }]);
@@ -155,6 +170,7 @@ myApp.controller("accessoryController", function ($scope, $http) {
             console.log(detailsofclothes);
 
             $http.post("api/Carts/PostCart", detailsofclothes);
+            //$scope.successfullyadded = "ADDED TO YOUR CART";
 
         }
                    
@@ -179,4 +195,12 @@ myApp.controller("cartController", function ($scope, $http) {
 
         
     }
+
+    $http.get("api/Carts/CalculateSum").
+        then(function (response) {
+            $scope.total = response.data;
+            console.log($scope.total);
+        });
+    
+        
 });

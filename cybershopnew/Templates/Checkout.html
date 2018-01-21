@@ -1,0 +1,30 @@
+﻿<div class="fortables col-lg-7">:
+<center><b style="font-size:larger">YOUR ORDER</b></center>
+<br />
+ <table class="table" border="4">
+        <thead>
+            <tr>
+                <th>Sno</th>
+                <th>Name</th>
+                <th>Price</th>
+                
+            </tr>
+        </thead>
+
+        <tr ng-repeat="item in cart" border="2">
+            <td>{{item.Sno}}</td>
+            <td>{{item.Name}}</td>
+            <td>{{item.Price}}</td>
+            
+        </tr>
+        <tr>
+            <td></td>
+            <td><b style="font-size:x-large">TOTAL</b></td>
+            <td><b style="font-size:x-large">{{total}}</b></td>
+        </tr>
+
+    </table>
+<button class="btn-primary"><a href="#!/CustomerDetails" style="color:white">
+CONFIRM ORDER</a></button></p>
+
+</div>
