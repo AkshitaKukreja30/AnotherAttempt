@@ -21,7 +21,12 @@
             {
             templateUrl:"Templates/Home.html"
             }
-        )
+        )     
+            .when("/Cart",
+            {
+                templateUrl: "Templates/Cart.html",
+                controller: "cartController"
+            })
 
             .when("/Accesories",
             {
@@ -44,7 +49,27 @@ myApp.controller("booksController", function ($scope,$http) {
         then(function (response) {
             $scope.books = response.data;
         });
-    });
+
+
+
+    $scope.addtocart = function (index) {
+        $scope.chosen = "";
+        $scope.amount = "";
+        $scope.chosen = $scope.books[index]
+        console.log($scope.chosen);
+
+        var detailsofbooks = {
+            'Name': $scope.chosen.Name,
+            'Price': $scope.chosen.Price,
+            'Id': $scope.chosen.Id
+        };
+
+        console.log(detailsofbooks);
+
+        $http.post("api/Carts/PostCart", detailsofbooks);
+
+    }
+        });
 
 myApp.controller("SecondController", function ($scope) {
     $scope.courses = ['C#', 'C++', 'angular js', 'asp.net'];
@@ -57,6 +82,25 @@ myApp.controller("mobilestablesController", function ($scope, $http) {
         then(function (response) {
             $scope.mobiles = response.data;
         });
+
+    $scope.addtocart = function (index) {
+        $scope.chosen = "";
+        $scope.amount = "";
+        $scope.chosen = $scope.mobiles[index]
+        console.log($scope.chosen);
+
+        var detailsofmobiles = {
+            'Name': $scope.chosen.Name,
+            'Price': $scope.chosen.Price,
+            'Id': $scope.chosen.Id
+        };
+
+        console.log(detailsofmobiles);
+
+        $http.post("api/Carts/PostCart", detailsofmobiles);
+
+    }
+        
 });
 
 myApp.controller("accessoryController", function ($scope, $http) {
@@ -65,15 +109,74 @@ myApp.controller("accessoryController", function ($scope, $http) {
         then(function (response) {
             $scope.accessories = response.data;
             console.log($scope.accessories);
+
         });
-});
+
+    $scope.addtocart = function (index) {
+        $scope.chosen = "";
+        $scope.amount = "";
+        $scope.chosen = $scope.accessories[index]
+        console.log($scope.chosen);
+                       
+        var detailsofaccessories = {
+            'Name': $scope.chosen.Name,
+            'Price': $scope.chosen.Price,
+            'Id':$scope.chosen.Id
+        };
+
+        console.log(detailsofaccessories);
+
+        $http.post("api/Carts/PostCart", detailsofaccessories);
+                
+        }
+       
+    });
 
     myApp.controller("clothingController", function ($scope, $http) {
 
         $http.get("api/clothingtables/Getclothingtables").
             then(function (response) {
                 $scope.clothes = response.data;
-                console.log($scope.accessories);
-            });
                 
+            });
+
+        $scope.addtocart = function (index) {
+            $scope.chosen = "";
+            $scope.amount = "";
+            $scope.chosen = $scope.clothes[index]
+            console.log($scope.chosen);
+
+            var detailsofclothes = {
+                'Name': $scope.chosen.Name,
+                'Price': $scope.chosen.Price,
+                'Id': $scope.chosen.Id
+            };
+
+            console.log(detailsofclothes);
+
+            $http.post("api/Carts/PostCart", detailsofclothes);
+
+        }
+                   
 }); 
+
+
+myApp.controller("cartController", function ($scope, $http) {
+
+    $http.get("api/Carts/GetCarts").
+        then(function (response) {
+            $scope.cart = response.data;
+            console.log($scope.cart);
+                        
+        });
+
+    $scope.removefromcart = function (index) {
+
+        $scope.chosentoremove = $scope.cart[index]
+        var producttoberemoved = $scope.chosentoremove.Id;
+        console.log(producttoberemoved);
+        $http.delete("api/Carts/DeleteCart", producttoberemoved);
+
+        
+    }
+});

@@ -24,21 +24,24 @@
           <Property Name="Author" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'cygnew.dbo.clothingtable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="Sno" />
+          </Key>
+          <Property Name="Sno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="clothingtable">
           <Key>
             <PropertyRef Name="Sno" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Brand" />
-            <PropertyRef Name="Size" />
-            <PropertyRef Name="Price" />
           </Key>
           <Property Name="Sno" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Size" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="mobilestable">
           <Key>
@@ -52,16 +55,9 @@ warning 6002: The table/view 'cygnew.dbo.clothingtable' does not have a primary 
         <EntityContainer Name="cygnewModelStoreContainer">
           <EntitySet Name="accessories" EntityType="Self.accessories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bookstable" EntityType="Self.bookstable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clothingtable" EntityType="Self.clothingtable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mobilestable" EntityType="Self.mobilestable" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="clothingtable" EntityType="Self.clothingtable" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [clothingtable].[Sno] AS [Sno], 
-    [clothingtable].[Name] AS [Name], 
-    [clothingtable].[Brand] AS [Brand], 
-    [clothingtable].[Size] AS [Size], 
-    [clothingtable].[Price] AS [Price]
-    FROM [dbo].[clothingtable] AS [clothingtable]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -81,6 +77,7 @@ warning 6002: The table/view 'cygnew.dbo.clothingtable' does not have a primary 
           <EntitySet Name="bookstables" EntityType="Self.bookstable" />
           <EntitySet Name="mobilestables" EntityType="cygnewModel.mobilestable" />
           <EntitySet Name="accessories" EntityType="cygnewModel.accessory" />
+          <EntitySet Name="Carts" EntityType="cygnewModel.Cart" />
           <EntitySet Name="clothingtables" EntityType="cygnewModel.clothingtable" />
         </EntityContainer>
         <EntityType Name="mobilestable">
@@ -101,19 +98,24 @@ warning 6002: The table/view 'cygnew.dbo.clothingtable' does not have a primary 
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
         </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="Sno" />
+          </Key>
+          <Property Name="Sno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="clothingtable">
           <Key>
             <PropertyRef Name="Sno" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Brand" />
-            <PropertyRef Name="Size" />
-            <PropertyRef Name="Price" />
           </Key>
           <Property Name="Sno" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Brand" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Size" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -152,12 +154,22 @@ warning 6002: The table/view 'cygnew.dbo.clothingtable' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Carts">
+            <EntityTypeMapping TypeName="cygnewModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sno" ColumnName="Sno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="clothingtables">
             <EntityTypeMapping TypeName="cygnewModel.clothingtable">
               <MappingFragment StoreEntitySet="clothingtable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Size" ColumnName="Size" />
-                <ScalarProperty Name="Brand" ColumnName="Brand" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Sno" ColumnName="Sno" />
               </MappingFragment>

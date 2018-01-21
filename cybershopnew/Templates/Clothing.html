@@ -4,7 +4,8 @@
             <tr>
                 <th>Sno</th>
                 <th>Name</th>
-
+                <!--<th>Brand</th>-->
+                <th>Size</th>
                 <th>Price</th>
                 <th></th>
             </tr>
@@ -13,9 +14,10 @@
         <tr ng-repeat="cloth in clothes" border="2">
             <td>{{cloth.Sno}}</td>
             <td>{{cloth.Name}}</td>
-
+            <!--<td>{{cloth.Brand}}</td>-->
+            <td>{{cloth.Size}}</td>
             <td>{{cloth.Price}}</td>
-            <td><button class="btn-primary">ADD TO CART</button></td>
+            <td><button class="btn-primary" ng-click="addtocart($index)">ADD TO CART</button></td>
 
         </tr>
     </table>

@@ -164,6 +164,7 @@
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Templates\Accessories.html" />
     <Content Include="Templates\Books.html" />
+    <Content Include="Templates\Cart.html" />
     <Content Include="Templates\Clothing.html" />
     <Content Include="Templates\ContactUs.html" />
     <Content Include="Templates\Home.html" />
@@ -183,6 +184,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controller\accessoriesController.cs" />
     <Compile Include="Controller\bookstablesController.cs" />
+    <Compile Include="Controller\CartsController.cs" />
     <Compile Include="Controller\clothingtablesController.cs" />
     <Compile Include="Controller\mobilestablesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -192,6 +194,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\bookstable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Cart.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\clothingtable.cs">

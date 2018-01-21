@@ -12,11 +12,10 @@ namespace cybershopnew.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class clothingtable
+    public partial class Cart
     {
         public int Sno { get; set; }
         public string Name { get; set; }
-        public string Size { get; set; }
         public decimal Price { get; set; }
         public int Id { get; set; }
     }

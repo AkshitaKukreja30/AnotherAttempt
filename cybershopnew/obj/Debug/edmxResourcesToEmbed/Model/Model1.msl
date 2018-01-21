@@ -32,12 +32,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Carts">
+      <EntityTypeMapping TypeName="cygnewModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="clothingtables">
       <EntityTypeMapping TypeName="cygnewModel.clothingtable">
         <MappingFragment StoreEntitySet="clothingtable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Size" ColumnName="Size" />
-          <ScalarProperty Name="Brand" ColumnName="Brand" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Sno" ColumnName="Sno" />
         </MappingFragment>

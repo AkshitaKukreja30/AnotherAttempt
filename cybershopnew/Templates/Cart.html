@@ -9,11 +9,11 @@
             </tr>
         </thead>
 
-        <tr ng-repeat="mobile in mobiles" border="2">
-            <td>{{mobile.Sno}}</td>
-            <td>{{mobile.Name}}</td>
-            <td>{{mobile.Price}}</td>
-            <td><button class="btn-primary" ng-click="addtocart($index)">ADD TO CART</button></td>
+        <tr ng-repeat="item in cart" border="2">
+            <td>{{item.Sno}}</td>
+            <td>{{item.Name}}</td>
+            <td>{{item.Price}}</td>
+            <td><button class="btn-primary" ng-click="removefromcart($index)">REMOVE</button></td>
 
         </tr>
     </table>
