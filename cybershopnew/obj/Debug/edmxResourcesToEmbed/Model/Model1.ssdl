@@ -21,7 +21,7 @@
   </EntityType>
   <EntityType Name="Cart">
     <Key>
-      <PropertyRef Name="Sno" />
+      <PropertyRef Name="Id" />
     </Key>
     <Property Name="Sno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />

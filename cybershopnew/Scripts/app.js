@@ -191,9 +191,22 @@ myApp.controller("cartController", function ($scope, $http) {
         $scope.chosentoremove = $scope.cart[index]
         var producttoberemoved = $scope.chosentoremove.Id;
         console.log(producttoberemoved);
-        $http.delete("api/Carts/DeleteCart", producttoberemoved);
+        $http.delete("api/Carts/DeleteFromCart/" + producttoberemoved).
+            then(function successCallBack(response) {
+                $scope.msg = "removed";
+                $http.get("api/Carts/GetCarts").
+                    then(function (response) {
+                        $scope.cart = response.data;
+                        console.log($scope.cart);
 
-        
+                    });
+
+                
+                //console.log($scope.msg);
+                console.log(response.data);
+            }), function errorCallBack(errorResponse) {
+                console.log(errorResponse.data);
+            };
     }
 
     $http.get("api/Carts/CalculateSum").

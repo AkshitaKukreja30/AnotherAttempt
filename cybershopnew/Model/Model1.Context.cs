@@ -28,7 +28,7 @@ namespace cybershopnew.Model
         public virtual DbSet<bookstable> bookstables { get; set; }
         public virtual DbSet<mobilestable> mobilestables { get; set; }
         public virtual DbSet<accessory> accessories { get; set; }
-        public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<clothingtable> clothingtables { get; set; }
+        public virtual DbSet<Cart> Carts { get; set; }
     }
 }

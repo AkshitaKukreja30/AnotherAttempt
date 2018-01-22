@@ -26,7 +26,7 @@
         </EntityType>
         <EntityType Name="Cart">
           <Key>
-            <PropertyRef Name="Sno" />
+            <PropertyRef Name="Id" />
           </Key>
           <Property Name="Sno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -77,8 +77,8 @@
           <EntitySet Name="bookstables" EntityType="Self.bookstable" />
           <EntitySet Name="mobilestables" EntityType="cygnewModel.mobilestable" />
           <EntitySet Name="accessories" EntityType="cygnewModel.accessory" />
-          <EntitySet Name="Carts" EntityType="cygnewModel.Cart" />
           <EntitySet Name="clothingtables" EntityType="cygnewModel.clothingtable" />
+          <EntitySet Name="Carts" EntityType="cygnewModel.Cart" />
         </EntityContainer>
         <EntityType Name="mobilestable">
           <Key>
@@ -98,15 +98,6 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
         </EntityType>
-        <EntityType Name="Cart">
-          <Key>
-            <PropertyRef Name="Sno" />
-          </Key>
-          <Property Name="Sno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Id" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="clothingtable">
           <Key>
             <PropertyRef Name="Sno" />
@@ -114,6 +105,15 @@
           <Property Name="Sno" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Size" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Sno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="Id" Type="Int32" Nullable="false" />
         </EntityType>
@@ -154,22 +154,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Carts">
-            <EntityTypeMapping TypeName="cygnewModel.Cart">
-              <MappingFragment StoreEntitySet="Cart">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Sno" ColumnName="Sno" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="clothingtables">
             <EntityTypeMapping TypeName="cygnewModel.clothingtable">
               <MappingFragment StoreEntitySet="clothingtable">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sno" ColumnName="Sno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carts">
+            <EntityTypeMapping TypeName="cygnewModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Sno" ColumnName="Sno" />
               </MappingFragment>

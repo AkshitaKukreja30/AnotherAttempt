@@ -84,9 +84,10 @@ namespace cybershopnew.Controller
 
             return CreatedAtRoute("DefaultApi", new { id = cart.Sno }, cart);
         }
-
+        //[Route("Carts/DeleteCart/{id}")]
+        [HttpDelete]
         // DELETE: api/Carts/DeleteCart
-        [ResponseType(typeof(Cart))]
+        //[ResponseType(typeof(Cart))]
         public IHttpActionResult DeleteCart(int id)
         {
             Cart cart = db.Carts.Find(id);
@@ -118,8 +119,35 @@ namespace cybershopnew.Controller
         [HttpGet]
         public decimal CalculateSum()
         {
-            return db.Carts.Sum(e => e.Price);
-            
+            if (db.Carts == null)
+            {
+                return 1;
+            }
+            else
+            {
+                return db.Carts.Sum(e => e.Price);
+            }
         }
+
+
+        [HttpDelete]
+        public int DeleteFromCart(int id)
+        {
+            Cart cart = db.Carts.Find(id);
+            db.Carts.Remove(cart);
+            db.SaveChanges();
+
+            return 1;
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }
